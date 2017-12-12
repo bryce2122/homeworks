@@ -28,30 +28,29 @@ class Board
   def make_move(start_pos, current_player_name)
     start_pos
     stones,@cups[start_pos] = @cups[start_pos],[]
+
       until stones.empty?
-        @cups[start_pos += 1] << stones.shift unless start_pos == 12 ||
-        start_pos == 5
-        if current_player_name == @name1 && start_pos == 12
+        if  start_pos == 13
           start_pos = 0
-          @cups[start_pos] << stones.shift
-        elsif current_player_name == @name1 && start_pos == 5
-          cups[start_pos += 1] << stones.shift
-        elsif current_player_name == @name2 && start_pos == 5
-          start_pos = 6
-          cups[start_pos += 1] << stones.shift
+        else
+          start_pos += 1
+        end
+
+        if current_player_name == @name1
+          @cups[start_pos] << stones.shift if start_pos != 13
+        else
+          @cups[start_pos] << stones.shift if start_pos != 0
         end
       end
       render
-        debugger
-        a = next_turn(start_pos)
-        "switch"
-
-
-
+      next_turn(start_pos,current_player_name)
       end
 
-  def next_turn(ending_cup_idx)
-    return :switch
+  def next_turn(ending_cup_idx,player)
+    p ending_cup_idx
+      return :prompt if ending_cup_idx == 6 && player == @name1
+      return :prompt if ending_cup_idx == 13 && player == @name2
+      @cups[ending_cup_idx].length > 1 ? ending_cup_idx : :switch
   end
 
   def render
@@ -63,8 +62,16 @@ class Board
   end
 
   def one_side_empty?
+      return true if @cups[0..5].all? {|x| x.empty?}
+      return true if @cups[7..12].all? {|x| x.empty?}
+      false
+
   end
 
   def winner
+    return :draw if @cups[6].count == @cups[13].count
+    return @name1 if @cups[6].count > @cups[13].count
+    return @name2 if @cups[13].count > @cups[6].count
+
   end
 end

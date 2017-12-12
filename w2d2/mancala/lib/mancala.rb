@@ -23,7 +23,7 @@ class Mancala
   def take_turn(current_player)
     move_result = :prompt
 
-    until move_result == "switch"
+    # until move_result == "switch"
       if move_result == :prompt
         print_indices
 
@@ -41,7 +41,7 @@ class Mancala
       end
       break if won?
     end
-  end
+  # end
 
   def won?
      @board.one_side_empty?

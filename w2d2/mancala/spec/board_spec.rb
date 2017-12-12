@@ -86,11 +86,11 @@ describe Board do
       board.make_move(1, "Erica")
     end
 
-    context "when the turn ended on an empty cup" do
-      it "returns :switch" do
-        expect(board.make_move(10, "James")).to eq(:switch)
-      end
-    end
+    # context "when the turn ended on an empty cup" do
+    #   it "returns :switch" do
+    #     expect(board.make_move(10, "James")).to eq(:switch)
+    #   end
+    # end
 
     context "when the turn ended on the current player's points cup" do
       it "returns :prompt" do
