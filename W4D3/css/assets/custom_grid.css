@@ -1,0 +1,108 @@
+[class*='col-'] {
+  padding-right: 20px;
+}
+
+[class*='col-']:last-of-type {
+  padding-right: 0;
+}
+
+.col {
+  padding: 10px;
+  box-sizing: border-box;
+  width: 50%;
+
+}
+
+.col-1-3 {
+  float: left;
+  width: 33.33%
+
+
+}
+
+.col-2-3{
+  float: right;
+  width: 50%
+
+}
+
+.col:after {
+  content: "";
+  clear:both;
+  display: block;
+
+}
+
+header:after {
+  content: "";
+  clear:both;
+  display: block;
+
+}
+
+footer {
+
+  clear:both
+}
+
+/* .hamburger-dropdown {
+  display: none;
+} */
+
+@media all and (max-width: 900px) {
+  nav ul {
+    display: none;
+  }
+  .hamburger-dropdown {
+    display: block;
+  }
+
+  /* .hamburger-dropdown > li {
+    background: url(images/hamburger.png);
+  }
+
+  .hamburger-dropdown > li {
+  background: url(images/hamburger.png);
+  background-repeat: no-repeat;
+  background-size: 50px 50px;
+  width: 50px;
+  height: 50px;
+  /* nearest relatively positioned parent of absolute positioned child */
+  /* position: relative;
+  cursor: pointer;
+} */
+/* .hamburger-dropdown ul {
+  /* Every time we position an element absolutely we should be thinking about
+  which parent element we need to position relatively */
+  /* position: absolute;
+  top: 50px;
+  left: 0;
+  flex-direction: column;
+  cursor: pointer;
+  box-shadow: black 5px 5px 10px;
+} */
+
+/* This is how we create pure css dropdown effects. No JS required. */
+/* .hamburger-dropdown:hover ul {
+  display: flex;
+  background: ghostwhite;
+}
+
+.hamburger-dropdown ul li:hover a {
+  text-decoration: underline;
+} */
+}
+/* @media screen and (max-width: 1024px) {
+  body{
+     background-color: blue;
+   }
+
+   .col-2-3 {
+
+     width: 70%;
+     float: left;
+   }
+} */
+
+
+/* PUT FLUID GRID CODE HERE */
